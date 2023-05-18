@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hole 1 - Graveyard craving</title>
+<style>
+    html, body {
+        margin: 0;
+        height: 100%;
+        overflow: hidden;
+    }
+    body {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+    .fullSize{
+        height: 100%;
+        width: 100%;
+    }
+    #blurPage {
+        z-index: 1;
+        position: absolute;
+        backdrop-filter: blur(8px);
+    }
+    #fullWidthImage {
+        max-width: 100%;
+        max-height: 100%;
+        height: auto;
+        width: auto;
+        z-index: 2;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    #leftHalfImage {
+        max-width: 100%;
+        max-height: 100%;
+        height: auto;
+        width: auto;
+        z-index: 2;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-75%, -50%);
+        clip-path: inset(0 25% 0 25%);
+    }
+    #rightHalfImage {
+        max-width: 100%;
+        max-height: 100%;
+        height: auto;
+        width: auto;
+        z-index: 3;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-25%, -50%);
+        clip-path: inset(0 25% 0 25%);
+    }
+    #leftHalfPower {
+        max-width: 100%;
+        max-height: 100%;
+        height: auto;
+        width: auto;
+        z-index: 4;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        clip-path: inset(86% 50% 0 0);
+    }
+    #rightHalfPower {
+        max-width: 100%;
+        max-height: 100%;
+        height: auto;
+        width: auto;
+        z-index: 5;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateY(-50%);
+        clip-path: inset(86% 50% 0 0);
+    }
+    #midLine {
+        height: 100%;
+        width: 3px;
+        background-color: #fff;
+        z-index: 6;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+</style>
+</head>
+<body style="background-image: url('Hole 1.png')">
+    <div id="blurPage" class="fullSize"></div>
+    <img src="Hole%201.png" id="fullWidthImage"></img>
+</body>
+</html>
