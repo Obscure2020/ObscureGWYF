@@ -3,8 +3,15 @@
 <head>
 <title>Hole 3 - Graveyard craving</title>
 <link rel="stylesheet" href="../../gwyf.css">
+<script>
+    function resizeMidLine(){
+        let localHeight = getComputedStyle(document.getElementById("leftHalfImage")).height;
+        document.getElementById("midLine").style.height = localHeight;
+    }
+    window.addEventListener('resize', resizeMidLine);
+</script>
 </head>
-<body style="background-image: url('Hole 3-1.png')">
+<body style="background-image: url('Hole 3-1.png')" onload="resizeMidLine()">
     <div id="blurPage" class="fullSize"></div>
     <img src="Hole%203-1.png" id="leftHalfImage"></img>
     <img src="Hole%203-1.png" id="leftHalfPower"></img>
