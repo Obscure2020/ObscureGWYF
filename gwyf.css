@@ -87,3 +87,28 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+#homeIcon {
+    z-index: 7;
+    position: absolute;
+    height: 64px;
+    width: 64px;
+    right: 0;
+    padding-right: 5px;
+}
+#leftIcon {
+    z-index: 8;
+    position: absolute;
+    height: 64px;
+    width: 64px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+#rightIcon {
+    z-index: 9;
+    position: absolute;
+    height: 64px;
+    width: 64px;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+}
