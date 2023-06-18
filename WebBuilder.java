@@ -1,17 +1,40 @@
 import java.io.File;
-import java.util.Arrays;
+import java.util.ArrayList;
 
 class WebBuilder{
     public static void main(String[] args) throws Exception{
-        //URI test = new URI(null, file.toString(), null);
-        //System.out.println(test.toASCIIString());
+        // URI root = new File(".").toURI();
+        // System.out.println(root.toASCIIString());
+        // File beans = new File("./Workshop/Graveyard craving/Hole 1.png");
+        // System.out.println(root.relativize(beans.toURI()).toASCIIString());
+        ArrayList<WebPage> pages = new ArrayList<>();
         File folder = new File("./Workshop/Graveyard craving");
-        File[] images = Arrays.stream(folder.listFiles()).filter(f -> f.toString().toLowerCase().endsWith(".png")).toList().toArray(new File[0]);
         for(int hole=1; hole<=18; hole++){
-            File singleGuess = new File(folder, "Hole " + hole + ".png");
-            File doubleGuess = new File(folder, "Hole " + hole + "-1.png");
-            if(singleGuess.exists()) System.out.println(singleGuess.getName());
-            if(doubleGuess.exists()) System.out.println(doubleGuess.getName());
+            File output = new File(folder, "Hole " + hole + ".html");
+            File guess = new File(folder, "Hole " + hole + ".png");
+            if(guess.exists()){
+                File[] images = {guess};
+                WebPage newPage = new WebPage(output, images);
+                pages.add(newPage);
+            }
+            guess = new File(folder, "Hole " + hole + "-1.png");
+            if(guess.exists()){
+                File second = new File(folder, "Hole " + hole + "-2.png");
+                if(!second.exists()){
+                    StringBuilder sb = new StringBuilder("\"");
+                    sb.append(guess.getName());
+                    sb.append("\" exists, but \"");
+                    sb.append(second.getName());
+                    sb.append("\" does not. File naming error.");
+                    throw new Exception(sb.toString());
+                }
+                File[] images = {guess, second};
+                WebPage newPage = new WebPage(output, images);
+                pages.add(newPage);
+            }
+        }
+        for(WebPage wp : pages){
+            wp.generate(null, null);
         }
     }
 }
