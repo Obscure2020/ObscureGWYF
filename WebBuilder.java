@@ -53,10 +53,33 @@ class WebBuilder{
         // System.out.println(root.toASCIIString());
         // File beans = new File("./Workshop/Graveyard craving/Hole 1.png");
         // System.out.println(root.relativize(beans.toURI()).toASCIIString());
+        {
+            System.out.println("Scanning folder structure...");
+            ArrayDeque<File> scan = new ArrayDeque<>();
+            ArrayList<File> trash = new ArrayList<>();
+            File[] subs = new File(".").listFiles();
+            for(File f : subs) scan.addLast(f);
+            while(!scan.isEmpty()){
+                File item = scan.removeFirst();
+                if(item.getName().startsWith(".")) continue;
+                if(item.isDirectory()){
+                    subs = item.listFiles();
+                    for(File f : subs) scan.addLast(f);
+                    continue;
+                }
+                if(item.getName().toLowerCase().endsWith(".html")) trash.add(item);
+            }
+            if(!trash.isEmpty()) System.out.println("Deleting existing HTML files...");
+            for(File f : trash) f.delete();
+        }
+        System.gc();
+        System.out.println("Itemizing new WebPages...");
         ArrayList<WebPage> pages = new ArrayList<>();
         ArrayList<WebPage> firsts = new ArrayList<>();
         itemizeDirectories(new File("./Workshop"), pages, firsts);
         itemizeDirectories(new File("./Official"), pages, firsts);
+        System.out.println("Generating new WebPages...");
         for(WebPage wp : pages) wp.generate();
+        System.out.println("Done.");
     }
 }
