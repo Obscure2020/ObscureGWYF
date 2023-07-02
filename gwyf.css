@@ -10,6 +10,7 @@ body {
     background-attachment: fixed;
     background-size: cover;
     font-family: 'Roboto', sans-serif;
+    background-color: #000;
 }
 .fullSize{
     height: 100%;
