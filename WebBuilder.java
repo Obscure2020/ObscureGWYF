@@ -8,7 +8,7 @@ class WebBuilder{
             ArrayDeque<WebPage> result = new ArrayDeque<>(18);
             for(int hole=1; hole<=18; hole++){
                 File output = new File(folder, "Hole " + hole + ".html");
-                File guess = new File(folder, "Hole " + hole + ".png");
+                File guess = new File(folder, "Hole " + hole + ".webp");
                 if(guess.exists()){
                     File[] images = {guess};
                     WebPage newPage = new WebPage(output, images);
@@ -20,9 +20,9 @@ class WebBuilder{
                     result.addLast(newPage);
                     continue;
                 }
-                guess = new File(folder, "Hole " + hole + "-1.png");
+                guess = new File(folder, "Hole " + hole + "-1.webp");
                 if(guess.exists()){
-                    File second = new File(folder, "Hole " + hole + "-2.png");
+                    File second = new File(folder, "Hole " + hole + "-2.webp");
                     if(!second.exists()){
                         StringBuilder sb = new StringBuilder("Currently itemizing \"");
                         sb.append(folder.getCanonicalPath());
