@@ -13,6 +13,5 @@ for /R "%~dp0Workshop" %%f in (*.png) do (
         cwebp -progress -mt -noalpha -q 90 -m 6 -af "%%~nxf" -o "%%~nf.webp"
         echo.
     )
-    echo.
     popd
 )
