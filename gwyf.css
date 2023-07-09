@@ -83,7 +83,7 @@ body {
 #midLine {
     height: 100%;
     width: 3px;
-    background-color: #fff;
+    background-color: #0000;
     z-index: 6;
     position: absolute;
     top: 50%;
