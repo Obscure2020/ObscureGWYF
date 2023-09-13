@@ -6,8 +6,8 @@ function resizeMidLine(){
 window.addEventListener('resize', resizeMidLine);
 
 function setupMidLine(){
-    document.getElementById("midLine").style.backgroundColor = "#fff";
     resizeMidLine();
+    document.getElementById("midLine").style.backgroundColor = "#fff";
 }
 
 window.addEventListener('load', setupMidLine);
